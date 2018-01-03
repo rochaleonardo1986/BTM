@@ -650,7 +650,7 @@ void ThreadStakeMiner(void* parg)
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
     // Make this thread recognisable as the mining thread
-    RenameThread("cultofthedeadcow-miner");
+    RenameThread("bitmillion-miner");
     CWallet* pwallet = (CWallet*)parg;
 
     MidstateMap inputsMap;
