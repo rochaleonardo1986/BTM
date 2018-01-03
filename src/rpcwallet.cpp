@@ -203,7 +203,7 @@ Value setaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "setaccount <cultofthedeadcowaddress> <account>\n"
+            "setaccount <bitmillionaddress> <account>\n"
             "Sets the account associated with the given address.");
 
     CBitcoinAddress address(params[0].get_str());
@@ -233,7 +233,7 @@ Value getaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getaccount <cultofthedeadcowaddress>\n"
+            "getaccount <bitmillionaddress>\n"
             "Returns the account associated with the given address.");
 
     CBitcoinAddress address(params[0].get_str());
@@ -319,7 +319,7 @@ Value sendtoaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 4)
         throw runtime_error(
-            "sendtoaddress <cultofthedeadcowaddress> <amount> [comment] [comment-to]\n"
+            "sendtoaddress <bitmillionaddress> <amount> [comment] [comment-to]\n"
             "<amount> is a real and is rounded to the nearest " + FormatMoney(nMinimumInputValue)
             + HelpRequiringPassphrase());
 
@@ -391,7 +391,7 @@ Value signmessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "signmessage <cultofthedeadcowaddress> <message>\n"
+            "signmessage <bitmillionaddress> <message>\n"
             "Sign a message with the private key of an address");
 
     EnsureWalletIsUnlocked();
@@ -426,7 +426,7 @@ Value verifymessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
         throw runtime_error(
-            "verifymessage <cultofthedeadcowaddress> <signature> <message>\n"
+            "verifymessage <bitmillionaddress> <signature> <message>\n"
             "Verify a signed message");
 
     string strAddress  = params[0].get_str();
@@ -463,8 +463,8 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getreceivedbyaddress <cultofthedeadcowaddress> [minconf=1]\n"
-            "Returns the total amount received by <cultofthedeadcowaddress> in transactions with at least [minconf] confirmations.");
+            "getreceivedbyaddress <bitmillionaddress> [minconf=1]\n"
+            "Returns the total amount received by <bitmillionaddress> in transactions with at least [minconf] confirmations.");
 
     // Bitcoin address
     CBitcoinAddress address = CBitcoinAddress(params[0].get_str());
@@ -696,7 +696,7 @@ Value sendfrom(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 3 || params.size() > 6)
         throw runtime_error(
-            "sendfrom <fromaccount> <tocultofthedeadcowaddress> <amount> [minconf=1] [comment] [comment-to]\n"
+            "sendfrom <fromaccount> <tobitmillionaddress> <amount> [minconf=1] [comment] [comment-to]\n"
             "<amount> is a real and is rounded to the nearest " + FormatMoney(nMinimumInputValue)
             + HelpRequiringPassphrase());
 
@@ -1495,7 +1495,7 @@ Value keypoolreset(const Array& params, bool fHelp)
 void ThreadTopUpKeyPool(void* parg)
 {
     // Make this thread recognisable as the key-topping-up thread
-    RenameThread("cultofthedeadcow-key-top");
+    RenameThread("bitmillion-key-top");
 
     pwalletMain->TopUpKeyPool();
 }
@@ -1503,7 +1503,7 @@ void ThreadTopUpKeyPool(void* parg)
 void ThreadCleanWalletPassphrase(void* parg)
 {
     // Make this thread recognisable as the wallet relocking thread
-    RenameThread("cultofthedeadcow-lock-wa");
+    RenameThread("bitmillion-lock-wa");
 
     int64_t nMyWakeTime = GetTimeMillis() + *((int64_t*)parg) * 1000;
 
@@ -1725,8 +1725,8 @@ Value validateaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "validateaddress <cultofthedeadcowaddress>\n"
-            "Return information about <cultofthedeadcowaddress>.");
+            "validateaddress <bitmillionaddress>\n"
+            "Return information about <bitmillionaddress>.");
 
     CBitcoinAddress address(params[0].get_str());
     bool isValid = address.IsValid();
