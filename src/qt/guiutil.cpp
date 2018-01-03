@@ -111,8 +111,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // CultoftheDeadCow: check prefix
-    if(uri.scheme() != QString("cultofthedeadcow"))
+    // bitmillion: check prefix
+    if(uri.scheme() != QString("bitmillion"))
         return false;
 
     SendCoinsRecipient rv;
@@ -162,13 +162,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert cultofthedeadcow:// to cultofthedeadcow:
+    // Convert bitmillion:// to bitmillion:
     //
     //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("cultofthedeadcow://"))
+    if(uri.startsWith("bitmillion://"))
     {
-        uri.replace(0, 10, "cultofthedeadcow:");
+        uri.replace(0, 10, "bitmillion:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -297,7 +297,7 @@ void openConfigfile()
 {
     boost::filesystem::path pathConfig = GetConfigFile();
 
-    /* Open cultofthedeadcow.conf with the associated application */
+    /* Open bitmillion.conf with the associated application */
     if (boost::filesystem::exists(pathConfig))
         QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(pathConfig.string())));
 }
@@ -329,7 +329,7 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "CultoftheDeadCow.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "bitmillion.lnk";
 }
 
 bool GetStartOnSystemStartup()
@@ -411,7 +411,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "cultofthedeadcow.desktop";
+    return GetAutostartDir() / "bitmillion.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -452,7 +452,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         // Write a bitcoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        optionFile << "Name=CultoftheDeadCow\n";
+        optionFile << "Name=bitmillion\n";
         optionFile << "Exec=" << pszExePath << " -min\n";
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -473,10 +473,10 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 HelpMessageBox::HelpMessageBox(QWidget *parent) :
     QMessageBox(parent)
 {
-    header = tr("CultoftheDeadCow-Qt") + " " + tr("version") + " " +
+    header = tr("bitmillion-Qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
-        "  cultofthedeadcow-qt [" + tr("command-line options") + "]                     " + "\n";
+        "  bitmillion-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
 
@@ -485,7 +485,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
         "  -min                   " + tr("Start minimized") + "\n" +
         "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
 
-    setWindowTitle(tr("CultoftheDeadCow-Qt"));
+    setWindowTitle(tr("bitmillion-Qt"));
     setFont(bitcoinAddressFont());
     setTextFormat(Qt::PlainText);
     // setMinimumWidth is ignored for QMessageBox so put in non-breaking spaces to make it wider.
