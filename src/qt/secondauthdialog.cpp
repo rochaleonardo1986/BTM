@@ -26,7 +26,7 @@ SecondAuthDialog::SecondAuthDialog(QWidget *parent) :
 
 #if (QT_VERSION >= 0x040700)
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    ui->addressIn->setPlaceholderText(tr("Enter a CultoftheDeadCow address (e.g. CMRPxAsEZQfsnL5AxyCB4mDXixPJtkCBx2)"));
+    ui->addressIn->setPlaceholderText(tr("Enter a bitmillion address (e.g. CMRPxAsEZQfsnL5AxyCB4mDXixPJtkCBx2)"));
     ui->signatureOut->setPlaceholderText(tr("Click \"Sign data\" to generate signature"));
 #endif
 
