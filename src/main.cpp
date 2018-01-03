@@ -1012,47 +1012,48 @@ int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
     nSubsidy = 5000000 * COIN; 
     } else if(nHeight >= 19 && nHeight <= 1983){ 
     nSubsidy = 100 * COIN;  // 500,000
-    } else if(nHeight == 1984 ){
-    nSubsidy = 1984 * COIN;  // 1984
-    } else if(nHeight >= 1985 && nHeight <= 5000){ 
-    nSubsidy = 100 * COIN; // 1,000,000
-    } else if(nHeight >= 5001 && nHeight <= 10000){ 
-    nSubsidy = 200 * COIN; // 1,000,000
-    } else if(nHeight >= 10001 && nHeight <= 15000){ 
-    nSubsidy = 300 * COIN; // 1,500,000
-    } else if(nHeight >= 15001 && nHeight <= 20000){ 
-    nSubsidy = 400 * COIN; // 2,000,000
-    } else if(nHeight >= 20001 && nHeight <= 25000){ 
-    nSubsidy = 500 * COIN; // 2,500,000
-    } else if(nHeight >= 25001 && nHeight <= 30000){ 
-    nSubsidy = 400 * COIN; // 2,000,000
-    } else if(nHeight >= 30001 && nHeight <= 35000){ 
-    nSubsidy = 300 * COIN; // 1,500,000
-    } else if(nHeight >= 35001 && nHeight <= 40000){ 
-    nSubsidy = 200 * COIN; // 1,000,000
-    } else if(nHeight >= 40001 && nHeight <= 45000){ 
-    nSubsidy = 50 * COIN; // 250,000
-    } else if(nHeight >= 45001 && nHeight <= 50000){ 
-    nSubsidy = 50 * COIN;  // 250,000
-    } else if(nHeight >= 50001 && nHeight <= 55000){ 
-    nSubsidy = 200 * COIN; // 1,000,000
-    } else if(nHeight >= 55001 && nHeight <= 60000){ 
-    nSubsidy = 300 * COIN; // 1,500,000
-    } else if(nHeight >= 60001 && nHeight <= 65000){ 
-    nSubsidy = 400 * COIN; // 2,000,000
-    } else if(nHeight >= 65001 && nHeight <= 70000){ 
-    nSubsidy = 500 * COIN; // 2,500,000
-    } else if(nHeight >= 70001 && nHeight <= 75000){ 
-    nSubsidy = 400 * COIN; // 2,000,000
-    } else if(nHeight >= 75001 && nHeight <= 80000){ 
-    nSubsidy = 300 * COIN; // 1,500,000
-    } else if(nHeight >= 80001 && nHeight <= 85000){ 
-    nSubsidy = 200 * COIN; // 1,000,000
-    } else if(nHeight >= 85001 && nHeight <= 90000){ 
-    nSubsidy = 100 * COIN; // 500,000
-    } else if(nHeight >= 90001 && nHeight <= 110000){ 
-    nSubsidy = 1984 * COIN; // 39,680,000 == 76,481,000
     } 
+//	else if(nHeight == 1984 ){
+  //  nSubsidy = 1984 * COIN;  // 1984
+  //  } else if(nHeight >= 1985 && nHeight <= 5000){ 
+	//  nSubsidy = 100 * COIN; // 1,000,000
+    // } else if(nHeight >= 5001 && nHeight <= 10000){ 
+//    nSubsidy = 200 * COIN; // 1,000,000
+ //   } else if(nHeight >= 10001 && nHeight <= 15000){ 
+//    nSubsidy = 300 * COIN; // 1,500,000
+ //   } else if(nHeight >= 15001 && nHeight <= 20000){ 
+ //   nSubsidy = 400 * COIN; // 2,000,000
+ //   } else if(nHeight >= 20001 && nHeight <= 25000){ 
+  //  nSubsidy = 500 * COIN; // 2,500,000
+ //   } else if(nHeight >= 25001 && nHeight <= 30000){ 
+  //  nSubsidy = 400 * COIN; // 2,000,000
+  //  } else if(nHeight >= 30001 && nHeight <= 35000){ 
+ //  nSubsidy = 300 * COIN; // 1,500,000
+ //   } else if(nHeight >= 35001 && nHeight <= 40000){ 
+ //   nSubsidy = 200 * COIN; // 1,000,000
+  //  } else if(nHeight >= 40001 && nHeight <= 45000){ 
+  //  nSubsidy = 50 * COIN; // 250,000
+  //  } else if(nHeight >= 45001 && nHeight <= 50000){ 
+  //  nSubsidy = 50 * COIN;  // 250,000
+ //   } else if(nHeight >= 50001 && nHeight <= 55000){ 
+ //   nSubsidy = 200 * COIN; // 1,000,000
+ //   } else if(nHeight >= 55001 && nHeight <= 60000){ 
+  //  nSubsidy = 300 * COIN; // 1,500,000
+ //   } else if(nHeight >= 60001 && nHeight <= 65000){ 
+ //   nSubsidy = 400 * COIN; // 2,000,000
+ //   } else if(nHeight >= 65001 && nHeight <= 70000){ 
+ //   nSubsidy = 500 * COIN; // 2,500,000
+ //   } else if(nHeight >= 70001 && nHeight <= 75000){ 
+ //   nSubsidy = 400 * COIN; // 2,000,000
+ //   } else if(nHeight >= 75001 && nHeight <= 80000){ 
+//    nSubsidy = 300 * COIN; // 1,500,000
+//    } else if(nHeight >= 80001 && nHeight <= 85000){ 
+ //   nSubsidy = 200 * COIN; // 1,000,000
+ //   } else if(nHeight >= 85001 && nHeight <= 90000){ 
+ //   nSubsidy = 100 * COIN; // 500,000
+ //   } else if(nHeight >= 90001 && nHeight <= 110000){ 
+ //   nSubsidy = 1984 * COIN; // 39,680,000 == 76,481,000
+ //   } 
     if (nSubsidy < nMinSubsidy) {
         nSubsidy = nMinSubsidy;
     }
@@ -2692,9 +2693,9 @@ bool LoadBlockIndex(bool fAllowNew)
 
         // Genesis block
 
-        const char* pszTimestamp = "We have been doing this since 1984. What have you been doing?";
+        const char* pszTimestamp = "Bitmillion new critocrurrency";
         CTransaction txNew;
-        txNew.nTime = 1514217919;
+        txNew.nTime = 1514989061;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(9999) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
@@ -2704,7 +2705,7 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1514217919;
+        block.nTime    = 1514989061;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
         block.nNonce   = 756216;
 		if(fTestNet)
@@ -2730,7 +2731,7 @@ bool LoadBlockIndex(bool fAllowNew)
 
         //// debug print        
         block.print();
-        assert(block.hashMerkleRoot == uint256("0x5ac633acdc326d0c1c2c0628b80f49a559a06184fd16a626f5a66351b8dbb9f7"));
+        assert(block.hashMerkleRoot == uint256("0x"));
         assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
         assert(block.CheckBlock());
 
