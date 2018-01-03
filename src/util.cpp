@@ -1041,7 +1041,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "cultofthedeadcow";
+    const char* pszModule = "bitmillion";
 #endif
     if (pex)
         return strprintf(
@@ -1090,13 +1090,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\CultoftheDeadCow
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\CultoftheDeadCow
-    // Mac: ~/Library/Application Support/CultoftheDeadCow
-    // Unix: ~/.cultofthedeadcow
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\bitmillion
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\bitmillion
+    // Mac: ~/Library/Application Support/bitmillion
+    // Unix: ~/.bitmillion
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "CultoftheDeadCow";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "bitmillion";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -1108,10 +1108,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     fs::create_directory(pathRet);
-    return pathRet / "CultoftheDeadCow";
+    return pathRet / "bitmillion";
 #else
     // Unix
-    return pathRet / ".CultoftheDeadCow";
+    return pathRet / ".bitmillion";
 #endif
 #endif
 }
@@ -1173,7 +1173,7 @@ void createConf()
 #endif
     pConf << "rpcuser=cDc\nrpcpassword="
             + randomStrGen(15)
-            + "\nrpcport=1498"
+            + "\nrpcport=65123"
             + "\ndaemon=1"
             + "\nserver=1"
             + "\nrpcallowip=127.0.0.1";
@@ -1182,7 +1182,7 @@ void createConf()
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "cultofthedeadcow.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "bitmillion.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1218,7 +1218,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "cultofthedeadcowd.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "bitmillion.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
@@ -1389,7 +1389,7 @@ void AddTimeData(const CNetAddr& ip, int64_t nTime)
                     string strMessage = _("Warning: Please check that your computer's date and time are correct! If your clock is wrong CultoftheDeadCow will not work properly.");
                     strMiscWarning = strMessage;
                     printf("*** %s\n", strMessage.c_str());
-                    uiInterface.ThreadSafeMessageBox(strMessage+" ", string("CultoftheDeadCow"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION);
+                    uiInterface.ThreadSafeMessageBox(strMessage+" ", string("bitmillion"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION);
                 }
             }
         }
