@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = cultofthedeadcow-qt
+TARGET = bitmillion-qt
 VERSION = 0.7.5
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
