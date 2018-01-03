@@ -43,10 +43,10 @@ static const unsigned int MAX_INV_SZ = 50000;
 static const int64_t MIN_TX_FEE = 2 * CENT;
 static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
 
-static const int64_t MAX_MONEY = 80000000 * COIN;
+static const int64_t MAX_MONEY = 100000000 * COIN;
 static const int64_t MIN_TXOUT_AMOUNT = CENT/10;
 
-static const int64_t MAX_MINT_PROOF_OF_STAKE = 0.05 * COIN;	// 5% annual interest
+static const int64_t MAX_MINT_PROOF_OF_STAKE = 50 * COIN;	// 50 % annual interest
 
 
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
