@@ -1009,7 +1009,7 @@ int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
     const int nMinSubsidy = 0.1984 * COIN;
 	int64_t nSubsidy = 0 * COIN;
     if(nHeight == 1) {
-    nSubsidy = 5000000 * COIN; 
+    nSubsidy = 100000000 * COIN; 
     } else if(nHeight >= 19 && nHeight <= 1983){ 
     nSubsidy = 100 * COIN;  // 500,000
     } 
