@@ -2731,7 +2731,7 @@ bool LoadBlockIndex(bool fAllowNew)
 
         //// debug print        
         block.print();
-        assert(block.hashMerkleRoot == uint256("0x"));
+        assert(block.hashMerkleRoot == uint256("0x00000b982033cabf8935e4124554b9607982c8da1190f9a8be73e17c75845494"));
         assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
         assert(block.CheckBlock());
 
